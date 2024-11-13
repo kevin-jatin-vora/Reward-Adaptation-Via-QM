@@ -16,7 +16,7 @@ for avg in range(st,ed):
     A = np.load(f"{avg}//num_actions_16.npy")
     R = np.load(f"{avg}//R1_16.npy")
     R2 = np.load(f"{avg}//R2_16.npy")
-    gamma = 0.89
+    gamma = 0.9
     terminal_state = np.load(f"{avg}//terminal_states_16.npy")
 
     for bf in range(1,6,2):
@@ -280,15 +280,15 @@ for avg in range(st,ed):
         
         w=100
         # Plot average Q value per episode over 5 runs
-        # plt.plot(range(num_episodes-w+1), np.convolve(average_rewards, np.ones(w), 'valid') / w)
-        # plt.xlabel('Step')
-        # plt.ylabel('Average Reward')
-        # plt.title(f'Average Reward per Episode over {num_runs} Runs')
-        # plt.show()
+        plt.plot(range(num_episodes-w+1), np.convolve(average_rewards, np.ones(w), 'valid') / w)
+        plt.xlabel('Step')
+        plt.ylabel('Average Reward')
+        plt.title(f'Average Reward per Episode over {num_runs} Runs')
+        plt.show()
 
-        pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{0}_{bf}.csv')
+#         pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{0}_{bf}.csv')
 
-        data.append((avg, f"ours_{bf}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
-        # break
-pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{ed-1}.csv")
+#         data.append((avg, f"ours_{bf}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
+#         # break
+# pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{ed-1}.csv")
 

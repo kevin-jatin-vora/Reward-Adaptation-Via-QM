@@ -11,11 +11,11 @@ A=4
 R1 = np.load("0//R1.npy")
 R2 = np.load("0//R2.npy")
 r=R1+R2
-terminal_state = np.load("terminal.npy")
+terminal_state = np.load("0//terminal.npy")
 gamma = 0.939
 data=[]
 last=3
-for avg in range(0,3):
+for avg in range(0,30):
     for nst in range(1,5):
         filename = f'{avg}//T_{nst}.npy'
         T1=np.load(filename)
@@ -326,7 +326,7 @@ for avg in range(0,3):
 
         average_rewards /= num_runs
         end_time = time.time()
-        pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{nst+1}.csv')
+        # pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{nst+1}.csv')
         
         w=30
         # Plot average Q value per episode over 5 runs
@@ -337,28 +337,28 @@ for avg in range(0,3):
         plt.show()
         # input()
         
-        xy_s={}
-        for i in range(5):
-            for j in range(9):
-                xy_s[i*9 + j]=(i,j) 
+        # xy_s={}
+        # for i in range(5):
+        #     for j in range(9):
+        #         xy_s[i*9 + j]=(i,j) 
         
-        heat_map=np.zeros((5,9))    
-        for key in state_action.keys():
-            heat_map[xy_s[key]]=len(state_action[key])
+        # heat_map=np.zeros((5,9))    
+        # for key in state_action.keys():
+        #     heat_map[xy_s[key]]=len(state_action[key])
         
         
-        cmap =  'Blues' #sns.cm.flare
-        ax = sns.heatmap(heat_map, linewidth=0.5, linecolor='black', cmap=cmap, alpha=0.6)
-        # ax.invert_yaxis()
-        plt.savefig(f"{avg}//heatmap_DE_{nst+1}.png",bbox_inches = 'tight', dpi=1000)
-        plt.show()
-        # input()
-        data.append((avg, f"Dollar-Euro_{nst+1}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
+        # cmap =  'Blues' #sns.cm.flare
+        # ax = sns.heatmap(heat_map, linewidth=0.5, linecolor='black', cmap=cmap, alpha=0.6)
+        # # ax.invert_yaxis()
+        # plt.savefig(f"{avg}//heatmap_DE_{nst+1}.png",bbox_inches = 'tight', dpi=1000)
+        # plt.show()
+        # # input()
+        # data.append((avg, f"Dollar-Euro_{nst+1}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
         
         # break
-    # break
+    break
         
-pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{last-1}.csv")
-f = open("test_ep.txt", "w")
-f.write(f"{test_steps}")
-f.close()
+# pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{last-1}.csv")
+# f = open("test_ep.txt", "w")
+# f.write(f"{test_steps}")
+# f.close()

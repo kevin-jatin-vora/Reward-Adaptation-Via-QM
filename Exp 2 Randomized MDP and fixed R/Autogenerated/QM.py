@@ -286,9 +286,9 @@ for avg in range(st,ed):
         plt.title(f'Average Reward per Episode over {num_runs} Runs')
         plt.show()
 
-        pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{0}_{bf}.csv')
+#         pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{0}_{bf}.csv')
 
-        data.append((avg, f"ours_{bf}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
-        # break
-pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{ed-1}.csv")
+#         data.append((avg, f"ours_{bf}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
+#         # break
+# pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{ed-1}.csv")
 

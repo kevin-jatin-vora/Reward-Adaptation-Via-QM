@@ -32,7 +32,7 @@ R1 = np.load("R1.npy")
 R2 = np.load("R2.npy")
 R3 = np.load("R3.npy")
 r=R1+R2+R3
-gamma=0.88
+gamma=0.9
 data=[]
 init = int(input("init: "))
 last = int(input("end: "))
@@ -300,24 +300,24 @@ for avg in range(init,last):
         plt.title(f'Average Reward per Episode over {num_runs} Runs')
         plt.show()
 
-        pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{nst+1}.csv')
+#         pd.DataFrame(rewards_run).to_csv(f'{avg}//ours_{nst+1}.csv')
 
         
-        heat_map=np.zeros((7,7))    
-        for key in state_action.keys():
-            heat_map[STATE2WORLD[key]]=len(state_action[key])
+#         heat_map=np.zeros((7,7))    
+#         for key in state_action.keys():
+#             heat_map[STATE2WORLD[key]]=len(state_action[key])
         
-        import seaborn as sns
-        cmap =  'Blues' #sns.cm.flare
-        ax = sns.heatmap(heat_map, linewidth=0.5, linecolor='black', cmap=cmap, alpha=0.6)
-        #ax = sns.heatmap(heat_map, linewidth=0.5, cmap=cmap, alpha=0.6)
-        #ax.invert_yaxis()
-        #ax.invert_xaxis()
-        plt.savefig(f"{avg}//heatmap_RT_{nst+1}.png",bbox_inches = 'tight', dpi=1000)
-        plt.show()
-        data.append((avg, f"RT_{nst+1}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
+#         import seaborn as sns
+#         cmap =  'Blues' #sns.cm.flare
+#         ax = sns.heatmap(heat_map, linewidth=0.5, linecolor='black', cmap=cmap, alpha=0.6)
+#         #ax = sns.heatmap(heat_map, linewidth=0.5, cmap=cmap, alpha=0.6)
+#         #ax.invert_yaxis()
+#         #ax.invert_xaxis()
+#         plt.savefig(f"{avg}//heatmap_RT_{nst+1}.png",bbox_inches = 'tight', dpi=1000)
+#         plt.show()
+#         data.append((avg, f"RT_{nst+1}", S, A, S*A-sum([len(state_action[i]) for i in state_action.keys()]), end_time-start_time))
 
-pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{last-1}.csv")
-f = open("test_ep.txt", "w")
-f.write(f"{test_steps}")
-f.close()
+# pd.DataFrame(data, columns=['Run', 'Domain', '|S|', '|A|', 'Actions Pruned', 'QM']).to_csv(f"Data_RA_{last-1}.csv")
+# f = open("test_ep.txt", "w")
+# f.write(f"{test_steps}")
+# f.close()
