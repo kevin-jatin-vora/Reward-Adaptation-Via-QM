@@ -213,7 +213,7 @@ for avg in range(init,till): #for avg in range(30):
         number_stochastic_transitions = nst
         # T1 = restrict_transition(T1, number_stochastic_transitions)
         # T1[ts,:, :] = 0
-        gamma=0.89
+        gamma=0.9
         
         def compute_q_values(S, A, R, gamma, T=T1):
             # Initialize Q-values to zeros

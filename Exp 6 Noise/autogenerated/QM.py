@@ -148,7 +148,7 @@ for avg in range(st,ed):
     S,A,_ = R.shape
     bf=2
     number_stochastic_transitions=bf
-    gamma = 0.89
+    gamma = 0.9
     x_percentage = 0
     T1 = np.load(f"{avg}//T_{bf}.npy")
     

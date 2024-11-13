@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr  9 10:12:39 2024
-
-@author: Kevin
-"""
 import gym
 import random
 import torch

@@ -248,45 +248,7 @@ for avg in range(st,ed):
                 print(i)
                 print("------------")
                 break
-        
-        # Q=np.round(Q,2)
-
-        # Qm = np.zeros((S,A))
-        # o1 = (q_p1 + q_m2)**3
-        # o2 = (q_p2 + q_m1)**3
-        
-        # for s in range(S):
-        #     for a in range(A):
-        #         Qm[s,a]= max(o1[s,a], o2[s,a])
-        
-        # Qm +=50
-        # rm = R+R2
-        # for i in range(5000):
-        #     if(i>0):
-        #         U = Qm_k.copy()
-        #         Udash = Qm.copy()
-        #     Qm_k=Qm.copy()
-        #     for s in range(S):
-        #         if(s in terminal_state):
-        #             continue
-        #         else:
-        #             for a in range(A):
-        #                 temp=[]
-        #                 for sdash in transition(s,a):
-        #                     temp.append(r[s,a,sdash] + gamma*np.max(Qm_k[sdash]))
-        #                 Qm[s,a] =   max(Qm_k[s,a],min(temp)) #min(temp)
-        #     # if(i>0):
-        #     #     if(np.max(np.abs(Qm_k-Qm))> 0.9*(np.max(np.abs(U-Udash)))):
-        #     #         print("lowerbound")
-        #     #         print(i)
-        #             # input()
-        #     if(np.sum(np.abs(Qm-Qm_k))<0.0000000001):
-        #         print(i)
-        #         print("------------")
-        #         break
-        
-        # Qm = np.round(Qm,2)
-        
+               
         info=[]
         final_actions=set(list(range(A)))
         prune={}
