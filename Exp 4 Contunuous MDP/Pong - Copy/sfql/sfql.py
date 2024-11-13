@@ -17,11 +17,11 @@ import pickle
 def default_value():
     return [0] * 3
 
-with open(r'C:\Users\kvora1\Desktop\Pong - Copy\behaviors\LL_b1.pkl', 'rb') as handle:
+with open(r'LL_b1.pkl', 'rb') as handle:
     Q1 = dill.load(handle)
 Q1 = defaultdict(default_value, Q1)
 
-with open(r'C:\Users\kvora1\Desktop\Pong - Copy\behaviors\LL_b2.pkl', 'rb') as handle:
+with open(r'LL_b2.pkl', 'rb') as handle:
     Q2 = dill.load(handle)
 Q2 = defaultdict(default_value, Q2)
 
