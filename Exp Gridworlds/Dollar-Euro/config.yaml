@@ -1,0 +1,15 @@
+start: 0
+end: 30
+gamma: 0.939
+terminal_state: [0, 8, 40]
+x_percentage: 0
+nst_range: [1, 2, 3, 4]
+N_steps: 18000
+max_steps: 30
+test_steps: 12
+
+# Q-learning parameters
+learning_rate: 0.1
+epsilon_initial: 1.0
+epsilon_decay: 0.999
+epsilon_min: 0.01

@@ -1,0 +1,17 @@
+# Run ranges
+start: 0
+end: 30
+nst_range: [1, 3, 5, 7]
+
+# Q-learning hyperparameters
+gamma: 0.88
+learning_rate: 0.1
+epsilon_initial: 1.0
+epsilon_decay: 0.998
+epsilon_min: 0.01
+max_steps: 30
+N_steps: 28000
+test_steps: 4
+
+# Transition setup
+x_percentage: 0
